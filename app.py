@@ -26,7 +26,7 @@ def save_metadata(metadata):
     with open(METADATA_FILE, 'w') as f:
         json.dump(metadata, f)
 
-NGROK_URL = 'https://1caa-103-189-206-122.ngrok-free.app'  # Ganti URL ngrok setiap kali program di jalankan, sesuai url pada terminal command prompt
+NGROK_URL = 'https://aaaaaaaaaaaaaaaaaaaaaaa'  # Ganti URL ngrok setiap kali program di jalankan, sesuai url pada terminal command prompt
 
 @app.route('/')
 def index():
