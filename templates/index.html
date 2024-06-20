@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WayR QR Code Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">WayR </a>
+            <button class="navbar-toggle" id="navbar-toggle">☰</button>
+            <ul class="navbar-menu" id="navbar-menu">
+                <li class="navbar-item"><a href="#" class="navbar-link">Home</a></li>
+                <li class="navbar-item"><a href="#" class="navbar-link">Products</a></li>
+                <li class="navbar-item"><a href="#" class="navbar-link">About Us</a></li>
+                <li class="navbar-item"><a href="#" class="navbar-link">Services</a></li>
+                <li class="navbar-item"><a href="#" class="navbar-link">Blog</a></li>
+                <li class="navbar-item"><a href="#" class="navbar-link">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="wrapper">
+        <div class="container">
+            <h1>QR Code Generator</h1>
+            <div class="menu">
+                <button class="menu-item" onclick="selectType('image')">Image</button>
+                <button class="menu-item" onclick="selectType('pdf')">PDF</button>
+                <button class="menu-item" onclick="selectType('doc')">Doc</button>
+                <button class="menu-item" onclick="selectType('excel')">Excel</button>
+                <button class="menu-item" onclick="selectType('url')">URL</button>
+                <button class="menu-item" onclick="selectType('text')">Text</button>
+            </div>
+            <form id="qr-form">
+                <div id="text-input" class="hidden">
+                    <label for="data">Enter text or URL:</label>
+                    <input type="text" id="data" name="data">
+                </div>
+                <div id="file-input" class="hidden">
+                    <label for="file">Upload a file:</label>
+                    <input type="file" id="file" name="file">
+                </div>
+                <button type="submit">Generate QR Code</button>
+            </form>
+            <div id="qr-code" class="hidden">
+                <h2>Your QR Code</h2>
+                <img id="qr-img" src="" alt="QR Code">
+                <a id="download-link" href="#" download="qrcode.png">Download QR Code</a>
+            </div>
+        </div>
+        <footer>
+            <p>&copy; by Rico Way 2024 All Rights Reserved</p>
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

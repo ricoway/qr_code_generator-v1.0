@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploaded Files</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Uploaded Files</h1>
+        {% if token %}
+            <p>Token: {{ token }}</p>
+            {% if filename %}
+                <ul>
+                    <li>
+                        <a href="{{ url_for('uploaded_file', filename=filename) }}">{{ filename }}</a>
+                    </li>
+                </ul>
+            {% else %}
+                <p>No file associated with this QR code.</p>
+            {% endif %}
+        {% else %}
+            <p>Invalid QR code. Please try again.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

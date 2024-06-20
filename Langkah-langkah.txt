@@ -1,0 +1,59 @@
+install
+1. python -m venv venv
+2. source venv/bin/activate  # Untuk Mac/Linux
+3. venv\Scripts\activate  # Untuk Windows
+
+
+Instal Flask:
+1. pip install Flask
+2. pip install Flask qrcode[pil] pillow
+
+
+
+jika mengalami masalah ini (disebabkan oleh kebijakan eksekusi PowerShell di sistem Anda yang tidak mengizinkan menjalankan skrip):
+ SERVER\venv\Scripts\Activate.ps1 cannot be loaded because running scripts is disabled  
+on this system. For more information, see about_Execution_Policies at https:/go.microso 
+ft.com/fwlink/?LinkID=135170.
+At line:1 char:1
++ venv\Scripts\activate
++ ~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : SecurityError: (:) [], PSSecurityException
+    + FullyQualifiedErrorId : UnauthorizedAccess
+
+
+
+
+Untuk mengatasi masalah ini, Anda perlu mengubah kebijakan eksekusi PowerShell:
+Buka PowerShell sebagai Administrator:
+
+Cari PowerShell di menu Start.
+1. Klik kanan pada Windows PowerShell dan pilih "Run as administrator".
+   Periksa Kebijakan Eksekusi Saat Ini:
+   Jalankan perintah berikut untuk melihat kebijakan eksekusi saat ini:
+
+2. Jalankan powershell
+Get-ExecutionPolicy
+Ubah Kebijakan Eksekusi:
+Ubah kebijakan eksekusi menjadi RemoteSigned agar dapat menjalankan skrip dari virtual environment:
+
+3. Jalankan powershell
+Set-ExecutionPolicy RemoteSigned
+Jika diminta konfirmasi, ketik Y dan tekan Enter.
+
+Aktifkan Virtual Environment:
+Pindah ke direktori proyek Anda dan aktifkan virtual environment:
+
+4. powershell  Salin kode "venv\Scripts\activate" dan jalankan di terminal text editor project Anda
+
+
+
+
+Kembalikan Kebijakan Eksekusi (opsional):
+Setelah Anda selesai bekerja dengan virtual environment dan ingin mengembalikan kebijakan eksekusi ke pengaturan semula, Anda dapat melakukannya dengan:
+
+1. powershell Salin kode:
+Set-ExecutionPolicy Restricted
+
+
+
+Setelah melakukan langkah-langkah di atas, Anda seharusnya dapat mengaktifkan virtual environment dan melanjutkan dengan instalasi paket serta menjalankan aplikasi Flask.
